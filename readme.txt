@@ -1,21 +1,52 @@
 
-mapping
-midi preset
+KNC2
+ludwig.zeller@fhnw.ch
+December 2014
+IVK / IXDM / HGK / FHNW
 
-copy snippet
-
-commands
-
-
-other controllers
+v0.16
 
 
-// KNC2
-// ludwig.zeller@fhnw.ch
-// December 2014
-// IVK / IXDM / HGK / FHNW
+USAGE:
 
-// usage:
-// place this file as a tab in your project. See the examples for more reference. 
-// You have to call initKNC2(); in your setup() method after setting size();
-// and to call updateKNC2(); ideally at the beginning of your draw(); method
+You need to install the Processing library The MidiBus from http://www.smallbutdigital.com/themidibus.php or via the Processing library installer dialog.
+
+Place the KNC2.pde as a tab in your Processing sketch. See the examples for more reference. You have to call initKNC2(); in your setup() method after setting size();
+and to call updateKNC2(); ideally at the beginning of your draw(); method.
+
+Attach your Korg NanoControl 2 controller before running your sketch. You need the default  CC mappings. If you have modified these you can load up the right mappings from the file extra/mapping.nktrl2_data with the KORG KONTROL Editor. 
+
+You can also use KNC2 with other controllers. KNC2 processes all CC updates on MIDI channel 1. In order to connect to another USB Midi controller just call initKNC2(String port) in setup instead of initKNC2() where port is the name of the alternative device. You can only connect to one device at a time, but this could change in the future.
+
+
+REFERENCE:
+
+initVSynth([String port]); 
+// has to be called in setup(); optional: you can open another controller by providing its name
+updateVSynth(); 
+// has to be called at first in draw()midi.value( int ccNum ); midi.value( int ccNum, float mapA, float mapB ); midi.value( int ccNum, float mapA, float mapB, float linearity ); 
+
+// midi.value() gives you the direct value of the controller without easing
+// you can optionally provide a mapping range, otherwise it will return the slider range from 0-1
+// you can optionally set the linearity of the range, values between 0-1 produce logarithmic scales while values from 1-infinity produce exponential scales
+midi.eased( int ccNum);
+midi.eased( int ccNum, float mapA, float mapB );
+midi.eased( int ccNum, float mapA, float mapB, float linearity );
+// midi.eased() is similar to midi.value() but each CC signal is passed through an easing filter
+midi.setEaseRate( int ccNum, float rate );
+// you can set the easing rate for each CC individually from 0 - 1, where 0 will be very slow and 1 will be like midi.value()
+lfo.value( int lfoNum);lfo.value( int lfoNum, float mapA, float mapB );
+lfo.value( int lfoNum, float mapA, float mapB, float phase );
+// there are 8 LFOs (lfoNum: 0-7), if you hack the KNC2 code you can of course have as many as you want
+// use lfo.value() to read their values, no easing available here
+// you can also set the phase of the LFOs where TWO_PI is a full cycle
+
+lfo.setFrequency( int lfoNum, float freq );
+// you can set the frequency of each LFO from 0 to infinity, but please note that you cannot display changes that are faster than the framerate. 
+
+lfo.setWaveForm( int lfoNum, String waveForm ); // change waveforms between “sin”, “cos”, “saw”, “pul”
+
+
+
+
+
