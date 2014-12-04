@@ -23,37 +23,34 @@ Attach your Korg NanoControl 2 controller before running your sketch. You need t
 ###Reference
 
 ```Java
-initVSynth([String port]); 
-has to be called in setup(); optional: you can open another controller by providing its name
-updateVSynth(); 
-// has to be called at first in draw()
+initVSynth([String port]); // has to be called in setup(); optional: you can open another controller by providing its name
 
-midi.value( int ccNum ); 
-midi.value( int ccNum, float mapA, float mapB ); 
-midi.value( int ccNum, float mapA, float mapB, float linearity ); 
+updateVSynth(); // has to be called at first in draw()
 
 // midi.value() gives you the direct value of the controller without easing
 // you can optionally provide a mapping range, otherwise it will return the slider range from 0-1
 // you can optionally set the linearity of the range, values between 0-1 produce logarithmic scales while values from 1-infinity produce exponential scales
+midi.value( int ccNum ); 
+midi.value( int ccNum, float mapA, float mapB ); 
+midi.value( int ccNum, float mapA, float mapB, float linearity ); 
+
+// midi.eased() is similar to midi.value() but each CC signal is passed through an easing filter
 midi.eased( int ccNum);
 midi.eased( int ccNum, float mapA, float mapB );
 midi.eased( int ccNum, float mapA, float mapB, float linearity );
-// midi.eased() is similar to midi.value() but each CC signal is passed through an easing filter
-midi.setEaseRate( int ccNum, float rate );
-// you can set the easing rate for each CC individually from 0 - 1, where 0 will be very slow and 1 will be like midi.value()
 
-lfo.value( int lfoNum);
-lfo.value( int lfoNum, float mapA, float mapB );
-lfo.value( int lfoNum, float mapA, float mapB, float phase );
+midi.setEaseRate( int ccNum, float rate ); // you can set the easing rate for each CC individually from 0 - 1, where 0 will be very slow and 1 will be like midi.value()
+
 // there are 8 LFOs (lfoNum: 0-7), if you hack the KNC2 code you can of course have as many as you want
 // use lfo.value() to read their values, no easing available here
 // you can also set the phase of the LFOs where TWO_PI is a full cycle
+lfo.value( int lfoNum);
+lfo.value( int lfoNum, float mapA, float mapB );
+lfo.value( int lfoNum, float mapA, float mapB, float phase );
 
-lfo.setFrequency( int lfoNum, float freq );
-// you can set the frequency of each LFO from 0 to infinity, but please note that you cannot display changes that are faster than the framerate. 
+lfo.setFrequency( int lfoNum, float freq ); // you can set the frequency of each LFO from 0 to infinity, but please note that you cannot display changes that are faster than the framerate. 
 
-lfo.setWaveForm( int lfoNum, String waveForm ); 
-// change waveforms between “sin”, “cos”, “saw”, “pul”
+lfo.setWaveForm( int lfoNum, String waveForm ); // change waveforms between “sin”, “cos”, “saw”, “pul”
 ```
 
 
