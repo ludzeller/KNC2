@@ -23,9 +23,9 @@ Attach your Korg NanoControl 2 controller before running your sketch. You need t
 ###Reference
 
 ```Java
-initVSynth([String port]); // has to be called in setup(); optional: you can open another controller by providing its name
+initKNC2([String port]); // has to be called in setup(); optional: you can open another controller by providing its name
 
-updateVSynth(); // has to be called at first in draw()
+updateKNC2(); // has to be called at first in draw()
 
 // midi.value() gives you the direct value of the controller without easing
 // you can optionally provide a mapping range, otherwise it will return the slider range from 0-1
