@@ -1,13 +1,14 @@
 
-# KNC2
+## KNC2
+
 ludwig.zeller@fhnw.ch
-December 2014
+
 IVK / IXDM / HGK / FHNW
 
 v0.16
 
 
-##Usage:
+###Usage:
 
 You need to install the Processing library The MidiBus from http://www.smallbutdigital.com/themidibus.php or via the Processing library installer dialog.
 
@@ -19,9 +20,9 @@ Attach your Korg NanoControl 2 controller before running your sketch. You need t
 *You can also use KNC2 with other controllers.* KNC2 processes all CC updates on MIDI channel 1 and of course this behaviour can be changed since it's a snippet and not a library. In order to connect to another USB Midi controller just call initKNC2(String port) in setup instead of initKNC2() where port is the name of the alternative device. You can only connect to one device at a time, but this could change in the future.
 
 
-##Reference
+###Reference
 
-```
+```Java
 initVSynth([String port]); 
 has to be called in setup(); optional: you can open another controller by providing its name
 updateVSynth(); 
