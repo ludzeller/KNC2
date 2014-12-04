@@ -1,13 +1,16 @@
 
+// classic Winamp style buffer smearing
+// just mess around with the sliders
+
 void setup() {
   size(1280, 720, OPENGL);
-  initVSynth();
+  initKNC2();
   noCursor();
 }
 
 void draw() {
    
-  updateVSynth();
+  updateKNC2();
   
   noStroke();
   fill(0, midi.eased(4, 255, 0, 0.5));

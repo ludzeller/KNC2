@@ -1,9 +1,11 @@
 
+// render value of slider 1, knob 1 controls easing
+
 int counter = 0;
 
 void setup() {
 
-  initVSynth();
+  initKNC2();
   
   size(1000, 500);
   background(0);
@@ -13,7 +15,7 @@ void setup() {
 
 void draw() {
  
-  updateVSynth();
+  updateKNC2();
   
   counter++;
   if(counter > width) {

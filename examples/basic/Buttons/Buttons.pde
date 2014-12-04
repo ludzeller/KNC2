@@ -1,14 +1,16 @@
 
+// press the S buttons for this one
+
 int margin = 100;
 
 void setup() {
-  size(800, 400, OPENGL);
-  initVSynth(); 
+  size(800, 400);
+  initKNC2(); 
 }
 
 
 void draw() {
-  updateVSynth();
+  updateKNC2();
   
   background(0);
   fill(255);

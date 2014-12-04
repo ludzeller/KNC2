@@ -1,12 +1,14 @@
 
+// VJ-style synth
+
 void setup() {
   size(720, 720);
-  initVSynth();
+  initKNC2();
 }
 
 void draw() {
   
-  updateVSynth();
+  updateKNC2();
   
   rectMode(CENTER);
   
@@ -15,7 +17,6 @@ void draw() {
   float xStep, yStep;
   
   xAmt = round(midi.eased(2,1,100,3));
-  //yAmt = midi.eased(3,1,100,3); 
   
   xStep = width / xAmt / 1.0;
   yStep = height / xAmt / 1.0;

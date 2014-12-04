@@ -1,32 +1,37 @@
 
-// VSynthTools
+// KNC2
 // ludwig.zeller@fhnw.ch
-// July 2014
-// Basel School of Design
+// December 2014
+// IVK / IXDM / HGK / FHNW
+
+// usage:
+// place this file as a tab in your project. See the examples for more reference. 
+// You have to call initKNC2(); in your setup() method after setting size();
+// and to call updateKNC2(); ideally at the beginning of your draw(); method
 
 
 // todo:
 // memory management and interpolation, save presets to data folder, also as initialisation point
 // (soft recall: load from memory and put as easing target of interpolator engine)
-// allow for non-linearity with -5,5 ranges, etc
+// allow for non-linear mappings also for negative ranges, etc
 
 
 // General ---------------
 
-String VSynthVersion = "0.15";
+String version = "0.16";
 
-void initVSynth(){
- println("Using VSynthToolkit Version " + VSynthVersion);
+void initKNC2(){
+ println("Using KNC2 Version " + version);
  initMidi("SLIDER/KNOB"); // default for NanoControl
  initLfos();  
 }
 
-void initVSynth(String port){
+void initKNC2(String port){
  initMidi(port);
  initLfos(); 
 }
 
-void updateVSynth(){
+void updateKNC2(){
   updateMidi();
   updateLfos();
 }
@@ -61,7 +66,6 @@ class MidiBuffer{
   float[] eased; // current animated value
   float[] easeRate; // easing speed
   
-
   
   MidiBuffer() {
     // initialize buffers
@@ -142,8 +146,6 @@ public void noteOn(int channel, int pitch, int velocity) {
     midi.direct[128] = map(pitch, 0, 127, 0, 1); // store and normalize incoming value
   }
 }
-
-
 
 
 

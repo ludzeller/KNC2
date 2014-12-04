@@ -1,14 +1,16 @@
 
+// use the sliders, knobs adjust easing by default
+
 int margin = 100;
 
 void setup() {
-  size(800, 400, OPENGL);
-  initVSynth(); 
+  size(800, 400);
+  initKNC2(); 
 }
 
 
 void draw() {
-  updateVSynth();
+  updateKNC2();
   
   background(0);
   fill(255);

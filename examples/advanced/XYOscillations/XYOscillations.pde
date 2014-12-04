@@ -1,15 +1,18 @@
 
 // Waves Synth
-// Old school winamp/itunes style smear effect synth
+// Two LFOs control the position of the drawing line
+// A kaleidoscope effect is added on top
 
 // fader0 -> stroke weight
 // fader1 -> freq x
 // fader2 -> freq y
 // fader3 -> trail length
 // fader4 -> feedback strength
-// fader5 -> smear x direction / feedback intensity
-// fader6 -> smear y direction / feedback twist
+// fader5 -> feedback intensity
+// fader6 -> feedback twist
 // fader7 -> smear growing or shrinking
+
+// easing is active on all sliders
 
 int amt = 300;
 int margin = 150;
@@ -19,7 +22,7 @@ ArrayList<PVector> points;
 void setup() {
   
   size(800,800, OPENGL);
-  initVSynth();
+  initKNC2();
   
   points = new ArrayList<PVector>();
   lfo.setPhaseInvert(0, true); // cos
@@ -28,7 +31,7 @@ void setup() {
 
 void draw() {
   
-  updateVSynth();
+  updateKNC2();
   
   // set frequencies
   lfo.setFrequency(0, midi.eased(1, 0.1, 2, 2));
