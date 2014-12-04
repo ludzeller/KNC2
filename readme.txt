@@ -1,5 +1,5 @@
 
-KNC2
+#KNC2
 ludwig.zeller@fhnw.ch
 December 2014
 IVK / IXDM / HGK / FHNW
@@ -16,7 +16,7 @@ and to call updateKNC2(); ideally at the beginning of your draw(); method.
 
 Attach your Korg NanoControl 2 controller before running your sketch. You need the default  CC mappings. If you have modified these you can load up the right mappings from the file extra/mapping.nktrl2_data with the KORG KONTROL Editor. 
 
-You can also use KNC2 with other controllers. KNC2 processes all CC updates on MIDI channel 1. In order to connect to another USB Midi controller just call initKNC2(String port) in setup instead of initKNC2() where port is the name of the alternative device. You can only connect to one device at a time, but this could change in the future.
+You can also use KNC2 with other controllers. KNC2 processes all CC updates on MIDI channel 1 and of course this behaviour can be changed since it's a snippet and not a library. In order to connect to another USB Midi controller just call initKNC2(String port) in setup instead of initKNC2() where port is the name of the alternative device. You can only connect to one device at a time, but this could change in the future.
 
 
 REFERENCE:
