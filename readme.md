@@ -7,6 +7,11 @@ IVK / IXDM / HGK / FHNW
 
 v0.16
 
+###About:
+
+A wrapper for The MidiBus in order to use the Korg NanoControl 2 (or any other USB MIDI) controller within Processing in a very convenient way. That's it! Well, plus variable waveform LFOs and optional parameter glide for that certain instrument feeling.
+
+Please note, it's not a library but just a snippet to include in your sketch. This code was developed by Ludwig Zeller for a series of workshops at HGK Basel. See https://vimeo.com/113396020.
 
 ###Usage:
 
